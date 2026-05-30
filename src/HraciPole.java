@@ -67,4 +67,3 @@ public class HraciPole {
         hraciPole[i][j] = pridane;
     }
 }
-
