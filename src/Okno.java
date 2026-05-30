@@ -91,5 +91,12 @@ public class Okno extends JFrame {
         zobrazeniScore.setText("Skóre: " + skore);
 
     }
+
+    public void vysledekHry(String string){
+        JOptionPane.showMessageDialog(this, string, "KONEC HRY!", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+        new HlavniMenu().setVisible(true);
+
+    }
 }
 

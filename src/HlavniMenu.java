@@ -28,6 +28,13 @@ public class HlavniMenu extends JFrame {
 
             this.dispose();
 
+            Hra hra = new Hra(zvolenaVelikost);
+            Okno okno = new Okno(hra);
+            Ovladani ovladani = new Ovladani();
+            ovladani.vlozitHru(hra);
+            ovladani.vlozitOkno(okno);
+
+            okno.vlozitOvladani(ovladani);
         });
 
         JPanel panelTlacitka = new JPanel();
