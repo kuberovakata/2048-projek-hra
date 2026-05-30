@@ -66,4 +66,11 @@ public class HraciPole {
 
         hraciPole[i][j] = pridane;
     }
+
+    public void prohoditDlazdice(int r1, int s1, int r2, int s2) {
+
+        int docasna = this.hraciPole[r1][s1];
+        this.hraciPole[r1][s1] = this.hraciPole[r2][s2];
+        this.hraciPole[r2][s2] = docasna;
+    }
 }

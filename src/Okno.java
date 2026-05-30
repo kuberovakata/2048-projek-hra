@@ -2,10 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Okno extends JFrame {
 
     Hra hra;
+
+    private int prvniRadek = -1;
+    private int prvniSloupec = -1;
+    Color pruhledna = new java.awt.Color(0, 0, 0, 115);
 
     public static final int sirkaDlazdice = 120;
     public static final int vyskaDlazdice = 120;
@@ -72,6 +78,18 @@ public class Okno extends JFrame {
             for (int j = 0; j < velikost; j++) {
                 dlazdice[i][j] = new Dlazdice();
                 herniPanel.add(dlazdice[i][j]);
+
+                final int radek = i;
+                final int sloupec = j;
+
+                dlazdice[i][j].addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        zpracovaniKliknuti(radek, sloupec); // Pošleme souřadnice do naší nové metody
+                    }
+                });
+
+                herniPanel.add(dlazdice[i][j]);
             }
         }
         this.add(herniPanel, BorderLayout.CENTER);
@@ -106,6 +124,21 @@ public class Okno extends JFrame {
             }
         });
     }
+
+    private void zpracovaniKliknuti(int radek, int sloupec) {
+        if (prvniRadek == -1) {
+            prvniRadek = radek;
+            prvniSloupec = sloupec;
+            dlazdice[radek][sloupec].setBorder(BorderFactory.createLineBorder(pruhledna, 60));
+        } else {
+            dlazdice[prvniRadek][prvniSloupec].setBorder(null);
+            hra.getHraciPole().prohoditDlazdice(prvniRadek, prvniSloupec, radek, sloupec);
+            obnoveniHracihoPole(hra.getHraciPole(), hra.getSkore());
+            prvniRadek = -1;
+            prvniSloupec = -1;
+        }
+    }
+
     public void obnoveniHracihoPole(HraciPole pole, int skore){
         int [][] hraciPole = pole.getHraciPole();
         for(int i = 0; i < hra.getHraciPole().getVelikost(); i++){
