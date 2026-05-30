@@ -9,6 +9,7 @@ public class Okno extends JFrame {
     public static final int vyskaDlazdice = 120;
 
     private JLabel zobrazeniScore;
+    private Dlazdice dlazdice [][];
     private Ovladani ovladani;
 
     public Okno(Hra hra) {
@@ -38,6 +39,15 @@ public class Okno extends JFrame {
         herniPanel.setLayout(new GridLayout(velikost, velikost, 5, 5));
         herniPanel.setBackground(new Color(0, 0, 0));
         herniPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+        dlazdice = new Dlazdice[velikost][velikost];
+        for (int i = 0; i < velikost; i++) {
+            for (int j = 0; j < velikost; j++) {
+                dlazdice[i][j] = new Dlazdice();
+                herniPanel.add(dlazdice[i][j]);
+            }
+        }
+
         this.add(herniPanel, BorderLayout.CENTER);
     }
 }
