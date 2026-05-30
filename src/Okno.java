@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class Okno extends JFrame {
 
@@ -47,8 +49,47 @@ public class Okno extends JFrame {
                 herniPanel.add(dlazdice[i][j]);
             }
         }
-
         this.add(herniPanel, BorderLayout.CENTER);
+
+        addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if( e.getKeyCode()==KeyEvent.VK_UP ) {
+                    ovladani.tahOdUzivatele(Hra.nahoru);
+                }
+
+                if( e.getKeyCode()==KeyEvent.VK_DOWN ) {
+                    ovladani.tahOdUzivatele(Hra.dolu);
+                }
+
+                if( e.getKeyCode()==KeyEvent.VK_LEFT ) {
+                    ovladani.tahOdUzivatele(Hra.vLevo);
+                }
+
+                if( e.getKeyCode()==KeyEvent.VK_RIGHT ) {
+                    ovladani.tahOdUzivatele(Hra.vPravo);
+                }
+            }
+        });
+    }
+    public void obnoveniHracihoPole(HraciPole pole, int skore){
+        int [][] hraciPole = pole.getHraciPole();
+        for(int i = 0; i < hra.getHraciPole().getVelikost(); i++){
+            for (int j = 0; j < hra.getHraciPole().getVelikost(); j++) {
+                dlazdice[i][j].nastavitPodleCisla(hraciPole[i][j]);
+            }
+        }
+        zobrazeniScore.setText("Skóre: " + skore);
+
     }
 }
 
