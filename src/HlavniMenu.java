@@ -28,7 +28,6 @@ public class HlavniMenu extends JFrame {
 
             this.dispose();
 
-            //TODO: zapnuti hry
         });
 
         JPanel panelTlacitka = new JPanel();
