@@ -18,6 +18,31 @@ public class Okno extends JFrame {
         this.hra = hra;
         setup();
         setTitle("2 0 4 8");
+
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+
+                int volba = JOptionPane.showConfirmDialog(
+                        Okno.this,
+                        "Opravdu chceš ukončit rozehranou hru a vrátit se do menu?",
+                        "Ukončit hru?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE
+                );
+
+                if (volba == JOptionPane.YES_OPTION) {
+                    Okno.this.dispose();
+
+                    java.awt.EventQueue.invokeLater(() -> {
+                        HlavniMenu menu = new HlavniMenu();
+                        menu.setVisible(true);
+                    });
+                }
+            }
+        });
+
         pack();
         setResizable(false);
         setVisible(true);
