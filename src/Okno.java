@@ -20,7 +20,12 @@ public class Okno extends JFrame {
     private Dlazdice dlazdice [][];
     private Ovladani ovladani;
 
+    public void vlozitOvladani(Ovladani ovladani){
+        this.ovladani = ovladani;
+    }
+
     public Okno(Hra hra) {
+
         this.hra = hra;
         setup();
         setTitle("2 0 4 8");
@@ -45,7 +50,7 @@ public class Okno extends JFrame {
                 if (volba == JOptionPane.YES_OPTION) {
                     Okno.this.dispose();
 
-                    java.awt.EventQueue.invokeLater(() -> {
+                    EventQueue.invokeLater(() -> {
                         HlavniMenu menu = new HlavniMenu();
                         menu.setVisible(true);
                     });
@@ -58,16 +63,13 @@ public class Okno extends JFrame {
         setVisible(true);
     }
 
-    public void vlozitOvladani(Ovladani ovladani){
-        this.ovladani = ovladani;
-    }
-
     private void setup(){
 
         this.setLayout(new BorderLayout());
+        int velikost = hra.getHraciPole().getVelikost();
+
         zobrazeniScore = new JLabel("   Skóre: " + hra.getSkore(), SwingConstants.LEFT);
         JPanel herniPanel = new JPanel();
-        int velikost = hra.getHraciPole().getVelikost();
 
         zobrazeniScore.setFont(new Font("Helvetica Neue", Font.BOLD, 24));
         zobrazeniScore.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
@@ -96,7 +98,6 @@ public class Okno extends JFrame {
                         zpracovaniKliknuti(radek, sloupec);
                     }
                 });
-
                 herniPanel.add(dlazdice[i][j]);
             }
         }

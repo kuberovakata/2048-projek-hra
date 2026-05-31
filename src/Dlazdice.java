@@ -4,11 +4,11 @@ import java.awt.*;
 public class Dlazdice  extends JLabel {
 
     public Dlazdice() {
+
         super("", SwingConstants.CENTER);
         setOpaque(true);
         setPreferredSize(new Dimension(Okno.sirkaDlazdice, Okno.vyskaDlazdice));
         setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0), 2));
-        setBackground(COLOR_BLANK_TILE);
     }
 
     public void nastavitPodleCisla(int cislo){
@@ -71,7 +71,5 @@ public class Dlazdice  extends JLabel {
                 break;
         }
     }
-
-    private static final Color COLOR_BLANK_TILE = new Color(197, 183, 170);
 }
 

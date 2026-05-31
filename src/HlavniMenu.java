@@ -25,8 +25,10 @@ public class HlavniMenu extends JFrame {
                 }
             }
         };
+
         panelSPozadim.setLayout(new BoxLayout(panelSPozadim, BoxLayout.Y_AXIS));
         panelSPozadim.add(Box.createVerticalStrut(320));
+
         JPanel obsahBilehoBoxu = new JPanel();
         obsahBilehoBoxu.setLayout(new BoxLayout(obsahBilehoBoxu, BoxLayout.Y_AXIS));
         obsahBilehoBoxu.setOpaque(false);
@@ -38,10 +40,12 @@ public class HlavniMenu extends JFrame {
         JLabel popisek = new JLabel("Vyber velikost pole:");
         popisek.setFont(new Font("Arial", Font.BOLD, 16));
         popisek.setForeground(new Color(50, 0, 50));
+
         panelVyberu.add(popisek);
 
         Integer[] velikosti = {4, 6, 8};
         JComboBox<Integer> vyberVelikosti = new JComboBox<>(velikosti);
+
         panelVyberu.add(vyberVelikosti);
 
         obsahBilehoBoxu.add(panelVyberu);
@@ -62,13 +66,14 @@ public class HlavniMenu extends JFrame {
 
         startTlacitko.addActionListener(e -> {
             int zvolenaVelikost = (int) vyberVelikosti.getSelectedItem();
+
             this.dispose();
+
             Hra hra = new Hra(zvolenaVelikost);
             Okno okno = new Okno(hra);
             Ovladani ovladani = new Ovladani();
             ovladani.vlozitHru(hra);
             ovladani.vlozitOkno(okno);
-
             okno.vlozitOvladani(ovladani);
         });
 

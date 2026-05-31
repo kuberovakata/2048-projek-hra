@@ -116,7 +116,6 @@ public class Hra {
         }
 
         novyRadek = prohozeniNaopak(novyRadek);
-
         novyRadek = procesTahVLevo(novyRadek);
 
         return prohozeniNaopak(novyRadek);
@@ -191,9 +190,7 @@ public class Hra {
         }
 
         boolean tahProveden = kontrolaProvedeniTahu(this.hraciPole.getHraciPole(), pole);
-
         this.hraciPole.setHraciPole(pole);
-
         return tahProveden;
     }
 

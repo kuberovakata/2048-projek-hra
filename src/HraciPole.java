@@ -63,7 +63,6 @@ public class HraciPole {
             i = random.nextInt(velikost);
             j = random.nextInt(velikost);
         }
-
         hraciPole[i][j] = pridane;
     }
 

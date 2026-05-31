@@ -29,6 +29,7 @@ public class Ovladani {
         }
 
         if (hra2048.jeNovaVyhra()) {
+
             int volba = javax.swing.JOptionPane.showConfirmDialog(
                     null,
                     "Gratuluji, dosáhl jsi 2048! Chceš pokračovat ve hře dál?",
