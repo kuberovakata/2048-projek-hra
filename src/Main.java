@@ -1,13 +1,11 @@
-import javax.swing.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
+        /**
+         * Hlavní metoda, vstupní bod programu.
+         * Vytvoření hlavního menu, ze kterého se následně spouští samotná hra.
+         */
         HlavniMenu hlavnimenu = new HlavniMenu();
-        SwingUtilities.invokeLater(() -> {
-            hlavnimenu.setVisible(true);});
-
     }
 }
