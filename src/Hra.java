@@ -7,6 +7,8 @@ public class Hra {
 
     private HraciPole hraciPole;
     private int skore;
+    private int skoreBonus;
+    private int bonus;
     private boolean vyhraOznamana;
 
     private int vyherniDlazdice = 2048;
@@ -85,6 +87,8 @@ public class Hra {
             if( novyRadek[i]!=0 && novyRadek[i]==novyRadek[i+1]) {
                 novyRadek[i] = 2*novyRadek[i];
                 skore+=novyRadek[i];
+                skoreBonus+=novyRadek[i];
+                pocitaniBonusSkore();
                 for( j=i+1; j<(hraciPole.getVelikost()-1); j++ ) {
                     novyRadek[j] = novyRadek[j+1];
                 }
@@ -191,6 +195,22 @@ public class Hra {
         this.hraciPole.setHraciPole(pole);
 
         return tahProveden;
+    }
+
+    public void pocitaniBonusSkore(){
+
+        if (skoreBonus>=1000){
+            bonus++;
+            skoreBonus=skoreBonus-1000;
+        }
+    }
+
+    public int getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
     }
 }
 

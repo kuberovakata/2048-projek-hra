@@ -72,7 +72,7 @@ public class Okno extends JFrame {
         zobrazeniScore.setFont(new Font("Helvetica Neue", Font.BOLD, 24));
         zobrazeniScore.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
         zobrazeniScore.setOpaque(true);
-        zobrazeniScore.setBackground(Color.BLACK);
+        zobrazeniScore.setBackground(new Color(40, 32, 44, 255));
         zobrazeniScore.setForeground(new Color(224, 233, 243));
         this.getContentPane().setBackground(Color.BLACK);
         this.add(zobrazeniScore,BorderLayout.NORTH);
@@ -134,11 +134,16 @@ public class Okno extends JFrame {
     }
 
     private void zpracovaniKliknuti(int radek, int sloupec) {
+
+        if (hra.getBonus()<1){
+            return;
+        }
         if (prvniRadek == -1) {
             prvniRadek = radek;
             prvniSloupec = sloupec;
             dlazdice[radek][sloupec].setBorder(BorderFactory.createLineBorder(pruhledna, 60));
         } else {
+            hra.setBonus(hra.getBonus() - 1);
             dlazdice[prvniRadek][prvniSloupec].setBorder(null);
             hra.getHraciPole().prohoditDlazdice(prvniRadek, prvniSloupec, radek, sloupec);
             obnoveniHracihoPole(hra.getHraciPole(), hra.getSkore());
@@ -154,7 +159,7 @@ public class Okno extends JFrame {
                 dlazdice[i][j].nastavitPodleCisla(hraciPole[i][j]);
             }
         }
-        zobrazeniScore.setText("   Skóre: " + skore);
+        zobrazeniScore.setText("   Skóre: " + skore + "  Porhození: "+hra.getBonus()+ " x");
 
     }
 
