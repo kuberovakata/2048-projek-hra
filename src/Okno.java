@@ -30,6 +30,10 @@ public class Okno extends JFrame {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
 
+                UIManager.put("OptionPane.background", Color.BLACK);
+                UIManager.put("Panel.background", Color.BLACK);
+                UIManager.put("OptionPane.messageForeground", Color.WHITE);
+
                 int volba = JOptionPane.showConfirmDialog(
                         Okno.this,
                         "Opravdu chceš ukončit rozehranou hru a vrátit se do menu?",
@@ -61,12 +65,16 @@ public class Okno extends JFrame {
     private void setup(){
 
         this.setLayout(new BorderLayout());
-        zobrazeniScore = new JLabel("Skóre: " + hra.getSkore(), SwingConstants.CENTER);
+        zobrazeniScore = new JLabel("   Skóre: " + hra.getSkore(), SwingConstants.LEFT);
         JPanel herniPanel = new JPanel();
         int velikost = hra.getHraciPole().getVelikost();
 
         zobrazeniScore.setFont(new Font("Helvetica Neue", Font.BOLD, 24));
         zobrazeniScore.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
+        zobrazeniScore.setOpaque(true);
+        zobrazeniScore.setBackground(Color.BLACK);
+        zobrazeniScore.setForeground(new Color(224, 233, 243));
+        this.getContentPane().setBackground(Color.BLACK);
         this.add(zobrazeniScore,BorderLayout.NORTH);
 
         herniPanel.setLayout(new GridLayout(velikost, velikost, 5, 5));
@@ -79,13 +87,13 @@ public class Okno extends JFrame {
                 dlazdice[i][j] = new Dlazdice();
                 herniPanel.add(dlazdice[i][j]);
 
-                final int radek = i;
-                final int sloupec = j;
+               int radek = i;
+               int sloupec = j;
 
                 dlazdice[i][j].addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
-                        zpracovaniKliknuti(radek, sloupec); // Pošleme souřadnice do naší nové metody
+                        zpracovaniKliknuti(radek, sloupec);
                     }
                 });
 
@@ -146,7 +154,7 @@ public class Okno extends JFrame {
                 dlazdice[i][j].nastavitPodleCisla(hraciPole[i][j]);
             }
         }
-        zobrazeniScore.setText("Skóre: " + skore);
+        zobrazeniScore.setText("   Skóre: " + skore);
 
     }
 
