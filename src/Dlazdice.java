@@ -41,52 +41,52 @@ public class Dlazdice  extends JLabel {
 
         switch(cislo){
             case 0:
-                setIcon(new ImageIcon("obrazky/0.png"));
+                setIcon(new ImageIcon(getClass().getResource("0.png")));
                 break;
             case 2:
-                setIcon(new ImageIcon("obrazky/2.png"));
+                setIcon(new ImageIcon(getClass().getResource("2.png")));
                 break;
             case 4:
-                setIcon(new ImageIcon("obrazky/4.png"));
+                setIcon(new ImageIcon(getClass().getResource("4.png")));
                 break;
             case 8:
-                setIcon(new ImageIcon("obrazky/8.png"));
+                setIcon(new ImageIcon(getClass().getResource("8.png")));
                 break;
             case 16:
-                setIcon(new ImageIcon("obrazky/16.png"));
+                setIcon(new ImageIcon(getClass().getResource("16.png")));
                 break;
             case 32:
-                setIcon(new ImageIcon("obrazky/32.png"));
+                setIcon(new ImageIcon(getClass().getResource("32.png")));
                 break;
             case 64:
-                setIcon(new ImageIcon("obrazky/64.png"));
+                setIcon(new ImageIcon(getClass().getResource("64.png")));
                 break;
             case 128:
-                setIcon(new ImageIcon("obrazky/128.png"));
+                setIcon(new ImageIcon(getClass().getResource("128.png")));
                 break;
             case 256:
-                setIcon(new ImageIcon("obrazky/256.png"));
+                setIcon(new ImageIcon(getClass().getResource("256.png")));
                 break;
             case 512:
-                setIcon(new ImageIcon("obrazky/512.png"));
+                setIcon(new ImageIcon(getClass().getResource("512.png")));
                 break;
             case 1024:
-                setIcon(new ImageIcon("obrazky/1024.png"));
+                setIcon(new ImageIcon(getClass().getResource("1024.png")));
                 break;
             case 2048:
-                setIcon(new ImageIcon("obrazky/2048.png"));
+                setIcon(new ImageIcon(getClass().getResource("2048.png")));
                 break;
             case 4096:
-                setIcon(new ImageIcon("obrazky/4096.png"));
+                setIcon(new ImageIcon(getClass().getResource("4096.png")));
                 break;
             case 8192:
-                setIcon(new ImageIcon("obrazky/8192.png"));
+                setIcon(new ImageIcon(getClass().getResource("8192.png")));
                 break;
             case 16384:
-                setIcon(new ImageIcon("obrazky/16384.png"));
+                setIcon(new ImageIcon(getClass().getResource("16384.png")));
                 break;
             case 32768:
-                setIcon(new ImageIcon("obrazky/32768.png"));
+                setIcon(new ImageIcon(getClass().getResource("32768.png")));
                 break;
         }
     }

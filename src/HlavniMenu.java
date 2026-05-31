@@ -26,7 +26,7 @@ public class HlavniMenu extends JFrame {
     public HlavniMenu() {
 
         /** Načtení obrázku pozadí ze složky projektu */
-        ImageIcon icon = new ImageIcon("obrazky/menu.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("menu.png"));
         obrazekPozadi = icon.getImage();
 
         /** Základní nastavení parametrů okna (JFrame) */
