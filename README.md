@@ -1,4 +1,4 @@
-#  Java 2048 – Stáhni a hraj!
+#  2 0 4 8
 
 Hra vznikla za účelem školního projektu druhého ročniku.
 
